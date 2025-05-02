@@ -5,12 +5,30 @@
   <title>andrewlabby.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    html {
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
       background: #fff;
       color: #000;
       font-family: 'Courier New', Courier, 'Lucida Console', monospace;
+      overflow: hidden;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100%;
       padding: 2rem;
-      line-height: 1.6;
+      gap: 2rem;
+    }
+    .left, .right {
+      flex: 1;
+      overflow: auto;
+      padding-right: 1rem;
     }
     a {
       color: #000;
@@ -25,10 +43,6 @@
       max-width: 100%;
       border: 2px solid #000;
     }
-    pre {
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
     .name {
       font-size: 1.8rem;
       font-weight: bold;
@@ -37,10 +51,27 @@
     strong {
       font-weight: bold;
     }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+        overflow: auto;
+      }
+      .left, .right {
+        padding-right: 0;
+      }
+    }
   </style>
 </head>
 <body>
-  <pre>
+  <div class="container">
+    <div class="left">
+      <pre>
 <span class="name">&gt; andrew labby</span>
 
 Hi. You probably got this link from a resume or a friend who said  
@@ -50,16 +81,16 @@ Let’s set expectations: <strong>no startup hype</strong> here.
 <strong>No animations, no mission statements, no inflated buzzwords.</strong> Just me.  
 I write code. I build systems. I keep things running.  
 <strong>It’s not complicated, but it matters.</strong>
-  </pre>
+      </pre>
 
-  <img src="me.JPG" alt="Picture of Andrew Labby smiling on a mountain">
+      <img src="me2.JPG" alt="Picture of Andrew Labby smiling on a mountain">
 
-  <pre>
+      <pre>
 Here’s a photo of me smiling on a mountain.  
 Because <strong>climbing mountains is what I do — technically and metaphorically.</strong>  
 (Yes, I really did just be that corny. You're still reading, so it worked.)
 
-I <strong>designed, built, and launched frametwo.com</strong> — the first platform  
+I <strong>designed, built, and launched <a href="https://frametwo.com" target="_blank">frametwo.com</a></strong> — the first platform  
 that scans videos for TOS violations across all major social platforms  
 <strong>before</strong> you upload them.  
 Wild concept. It works. It ships. People use it.
@@ -71,13 +102,14 @@ the kind of work where <strong>failure isn't an option</strong>
 and no one’s got time to explain twice.  
 I kept things moving. No drama. No disasters.
 
-I like solving hard problems with people who care about doing it right.  
 If that sounds like someone you want on your team:
 
 &gt; <strong>email</strong>   andrewjlabby@gmail.com  
 &gt; <strong>phone</strong>   724-467-8484 (leave a voicemail — I screen calls like it’s still 2009)
-
-
+      </pre>
+    </div>
+    <div class="right">
+      <pre>
 <strong>EXPERIENCE</strong>
 
 <strong>Appen</strong>  
@@ -119,8 +151,9 @@ Team Mentorship
 Data Engineering  
 
 Thanks for reading. I'm confident I can contribute meaningfully  
-and consistently deliver excellent work.
-
-  </pre>
+and consistently deliver excellent work — with no bullshit attached.
+      </pre>
+    </div>
+  </div>
 </body>
 </html>
