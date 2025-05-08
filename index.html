@@ -1,188 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>andrewlabby.com</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    html, body {
-      height: 100%;
-      width: 100%;
-      background: #fff;
-      color: #000;
-      font-family: 'Courier New', Courier, 'Lucida Console', monospace;
-      font-size: 13px;
-    }
-    .container {
-      display: flex;
-      height: 100vh;
-      width: 100%;
-      padding: 1.5rem;
-      gap: 1.5rem;
-    }
-    .left, .right {
-      flex: 1;
-      overflow-y: auto;
-      padding-right: 0.75rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    a {
-      color: #000;
-      text-decoration: underline;
-    }
-    a:hover {
-      text-decoration: none;
-    }
-    img {
-      margin: 1rem 0;
-      width: 120px;
-      max-width: 100%;
-      border: 2px solid #000;
-    }
-    .name {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin-bottom: 0.8rem;
-    }
-    strong {
-      font-weight: bold;
-    }
-    pre {
-      white-space: pre-wrap;
-      word-break: break-word;
-      line-height: 1.4;
-    }
-    @media (max-width: 768px) {
-      html, body {
-        height: auto;
-        font-size: 14px;
-      }
-      .container {
-        flex-direction: column;
-        height: auto;
-        overflow: auto;
-        padding: 1rem;
-        gap: 1rem;
-      }
-      .left, .right {
-        padding-right: 0;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Andrew Labby</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1c1c1c;
+  --paper:#f5f7fa;
+  --edge:#e0e4ea;
+}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+html,body{
+  height:100%;
+  width:100%;
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  font-size:15px;
+  line-height:1.6;
+}
+.wrapper{
+  max-width:1100px;
+  margin:auto;
+  padding:3rem 1.5rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+}
+h1,h2,h3{
+  font-weight:700;
+  line-height:1.3;
+}
+h1{
+  font-size:2rem;
+}
+h2{
+  font-size:1.25rem;
+  margin-bottom:.5rem;
+}
+ul{
+  list-style:disc;
+  padding-left:1.3rem;
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+}
+a{
+  color:var(--ink);
+  text-decoration:underline;
+}
+a:hover{
+  text-decoration:none;
+}
+.intro{
+  display:flex;
+  align-items:flex-start;
+  gap:1.5rem;
+}
+.profile{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid var(--ink);
+  flex-shrink:0;
+}
+section{
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+}
+.fade{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.fade.show{
+  opacity:1;
+  transform:none;
+}
+@media(max-width:800px){
+  .wrapper{
+    grid-template-columns:1fr;
+  }
+  h1{
+    font-size:1.7rem;
+  }
+  .intro{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="left">
+<div class="wrapper">
+  <section class="fade">
+    <div class="intro">
+      <img src="me4.jpg" alt="Andrew Labby" class="profile">
       <div>
-        <pre>
-<span class="name">&gt; andrew labby</span>
-
-Hey there! Appreciate you stopping by.  
-I’ve built a lot of polished web experiences.  
-This one’s intentionally stripped down. So the work can speak for itself 
-without any crazy animations. So here's a little bit about me:
-
-I build backend systems, ship production-grade tools,  
-and get large-scale pipelines to run cleanly and reliably.  
-Multi-million-record datasets. Model feedback loops.  
-Deadlines that don’t blink. That kind of work.
-
-At Appen, I lead engineering for high-risk LLM and vision projects  
-touching clients like <strong>Apple, Google, Amazon, Meta</strong>, and others under NDA.  
-I’ve built pipelines that process millions of annotations weekly,  
-wrote tools that cut QA time in half,  
-and integrated with TensorFlow training systems to keep models production-ready.
-
-Not a sandbox. Not a demo. Real tools for real workflows — under real pressure.
-        </pre>
-
-        <img src="me4.jpg" alt="Profile photo of Andrew Labby">
-
-        <pre>
-<strong><a href="https://www.linkedin.com/in/andrewlabby/" target="_blank">Same photo as my LinkedIn profile.</a></strong>
-
-I also launched <strong><a href="https://frametwo.com" target="_blank">frametwo.com</a></strong> — a platform  that pre-screens video content for 
-policy violations across YouTube, Meta, TikTok, etc., <strong>before</strong> upload. 
-It’s frame-level, scalable, and fully automated.
-
-People use it. It works. And it's always evolving.
-
-I’m based in the U.S., open to relocation.
-If the team’s sharp and the work’s got teeth,
-I’ll be googling “best grocery stores in [your city]” before the call is over.
-
-I’ve shipped systems at scale, led technical teams through high-stakes delivery,
-built tools that saved thousands of hours, and kept critical workflows alive
-when failure wasn’t an option.
-
-If you’re looking for someone who can lead, build, adapt, and deliver
-without the drama and without the ego, that’s me.
-
-Let’s talk.
-        </pre>
+        <h1>&gt; Andrew Labby</h1>
+        <p>I build backend systems and data pipelines that stay quiet and keep products alive. Reliable tools let teams focus on people. That is the work.</p>
       </div>
     </div>
+  </section>
 
-    <div class="right">
-      <div>
-        <pre>
-<strong>EXPERIENCE</strong>
+  <section class="fade">
+    <h2>Experience</h2>
 
-<strong>Appen</strong>  
-Senior LLM Specialist & Technical Lead  
-Nov. 2024 – Present  
-- Lead backend and infrastructure for enterprise-scale AI and LLM programs.  
-- Built pipelines with real-time validation and error tracking.  
-- Automated QA tooling that reduced human review cycles by 50%.  
-- Integrated with TensorFlow training workflows for production model optimization.  
-- Delivered critical systems for Apple, Google, Amazon, Meta, and more.
+    <h3>Appen</h3>
+    <p>Senior LLM Specialist and Technical Lead<br>Nov 2024 to Present</p>
+    <ul>
+      <li>Lead backend and infrastructure for enterprise scale AI and LLM programs</li>
+      <li>Built pipelines with real time validation and error tracking</li>
+      <li>Automated quality review that cut manual cycles by fifty percent</li>
+      <li>Integrated with TensorFlow training workflows for production model optimisation</li>
+      <li>Delivered critical systems for Apple Google Amazon Meta</li>
+    </ul>
 
-<strong>Twocopy / frametwo.com</strong>  
-Lead Full-Stack Engineer & Product Development  
-Oct. 2023 – Nov. 2024  
-- Built and deployed a video moderation platform used pre-upload across major platforms.  
-- Developed NAVIE: backend engine for frame-level violation detection.  
-- Owned full stack — architecture, frontend, backend, CI/CD, and product strategy.
+    <h3>Frametwo com</h3>
+    <p>Lead Engineer and Product Developer<br>Oct 2023 to Nov 2024</p>
+    <ul>
+      <li>Created a video moderation platform that screens content before upload across major platforms</li>
+      <li>Developed NAVIE, the engine for frame level policy detection</li>
+      <li>Owned architecture, frontend, backend, CI CD and product direction</li>
+    </ul>
+  </section>
 
-<strong>EDUCATION & CERTIFICATIONS</strong>
+  <section class="fade">
+    <h2>Education and Certification</h2>
+    <p>Harvard University CS50 via EdX&nbsp;&nbsp;Python and AI Focus</p>
+    <p>PCAA Python Essentials Advanced&nbsp;&nbsp;Cisco&nbsp;&nbsp;Dec 2024</p>
+    <p>PCAP Python Intermediate&nbsp;&nbsp;Cisco&nbsp;&nbsp;Jul 2023</p>
 
-Harvard University CS50 via EdX – Python & AI Focus  
-PCAA Python Essentials – Advanced, Cisco (Dec. 2024)  
-PCAP Python Intermediate – Cisco (July 2023)
+    <h2>Skills</h2>
+    <ul>
+      <li>TensorFlow integration</li>
+      <li>Large scale data pipelines</li>
+      <li>Backend architecture</li>
+      <li>Technical leadership</li>
+      <li>LLM systems and tooling</li>
+      <li>Vision and audio moderation</li>
+      <li>API design and delivery</li>
+      <li>Cloud infrastructure on GCP and AWS</li>
+      <li>Automation and orchestration</li>
+      <li>Production grade engineering</li>
+      <li>Cross functional alignment and team mentorship</li>
+    </ul>
+  </section>
 
-<strong>SKILLS</strong>
+  <section class="fade">
+    <h2>Contact</h2>
+    <p>Email&nbsp;&nbsp;andrewjlabby@gmail.com</p>
+    <p>Phone&nbsp;&nbsp;724 467 8484</p>
+    <p>LinkedIn&nbsp;&nbsp;<a href="https://www.linkedin.com/in/andrewlabby/" target="_blank">linkedin.com/in/andrewlabby</a></p>
+  </section>
+</div>
 
-TensorFlow Integration  
-Large-Scale Data Pipelines  
-Backend Architecture  
-Technical Leadership  
-LLM Systems & Tooling  
-Vision/Audio Moderation  
-API Design & Delivery  
-Cloud Infrastructure (GCP, AWS)  
-Automation & Orchestration  
-Production-Grade Engineering  
-Execution Under Pressure  
-Cross-Functional Alignment  
-Team Mentorship  
-Data Engineering  
-        </pre>
-      </div>
-      <div>
-        <pre>
-&gt; <strong>email</strong>     andrewjlabby@gmail.com  
-&gt; <strong>phone</strong>     724-467-8484  
-&gt; <strong>linkedin</strong>  <a href="https://www.linkedin.com/in/andrewlabby/" target="_blank">linkedin.com/in/andrewlabby</a>
-        </pre>
-      </div>
-    </div>
-  </div>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('show');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.2});
+  document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+});
+</script>
 </body>
 </html>
