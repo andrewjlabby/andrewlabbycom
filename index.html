@@ -42,6 +42,12 @@ h1{font-size:2.5rem;margin-bottom:.5rem;background:linear-gradient(45deg,var(--a
 .skill-card{background:rgba(255,255,255,0.03);padding:1.5rem;border-radius:1rem;border:1px solid rgba(255,255,255,0.05);transition:transform .3s ease}
 .skill-card:hover{transform:translateY(-5px)}
 .cert-badge{display:inline-block;padding:.5rem 1rem;background:rgba(79,70,229,0.1);color:var(--accent);border-radius:2rem;font-size:.9rem;margin:.5rem .5rem 0 0}
+.timeline-divider {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
+}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @media(max-width:1200px){
   .container{grid-template-columns:1fr;padding:1.5rem}
@@ -86,7 +92,7 @@ h1{font-size:2.5rem;margin-bottom:.5rem;background:linear-gradient(45deg,var(--a
       <h2 class="section-header">Leadership Experience</h2>
       <div class="timeline-item">
         <div class="timeline-date">NOV 2024 - PRESENT</div>
-        <h3 class="timeline-title">Senior LLM Specialist & Technical Lead • Appen</h3>
+        <h3 class="timeline-title">Senior LLM Specialist & Senior Technical Lead • Appen</h3>
         <ul>
           <li>Employee of the Quarter for delivering enterprise AI solutions</li>
           <li>Architected data pipelines processing 15M+ annotations monthly</li>
@@ -94,6 +100,7 @@ h1{font-size:2.5rem;margin-bottom:.5rem;background:linear-gradient(45deg,var(--a
           <li>Reduced model training cycles by 40% through pipeline optimization</li>
         </ul>
       </div>
+      <hr class="timeline-divider">
       <div class="timeline-item">
         <div class="timeline-date">OCT 2023 - NOV 2024</div>
         <h3 class="timeline-title">Lead Full-Stack Engineer • Twocopy (Frametwo.com)</h3>
@@ -125,6 +132,10 @@ h1{font-size:2.5rem;margin-bottom:.5rem;background:linear-gradient(45deg,var(--a
           <p>React • Node.js • Python • GraphQL • WebAssembly</p>
         </div>
       </div>
+      <div class="skill-card">
+        <h3>Full-Stack Web Tech</h3>
+        <p>FastAPI • Next.js • TypeScript • Tailwind CSS • PostgreSQL • Redis</p>
+      </div>         
     </section>
     <section class="section animate-on-scroll">
       <h2 class="section-header">Education & Credentials</h2>
