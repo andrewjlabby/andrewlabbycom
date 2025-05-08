@@ -2,340 +2,307 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Andrew Labby | Senior Technical Leader</title>
+<title>Andrew Labby - Senior Technical Leader</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet>
 <style>
-:root {
-  --bg: #0a0a0a;
-  --surface: #151515;
-  --accent: #4f46e5;
-  --accent-hover: #6366f1;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --success: #10b981;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
+:root {
+  --bg: #0a0a0a;
+  --surface: #1a1a1a;
+  --accent: #e5e5e5;
+  --muted: #737373;
+  --highlight: rgba(255,255,255,0.05);
+}
+
+html,body {
   height: 100%;
   background: var(--bg);
-  color: var(--text);
-  font-family: 'Space Grotesk', sans-serif;
-  line-height: 1.6;
-  overflow-x: hidden;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 40px 20px;
   display: grid;
-  grid-template-columns: 1.2fr 2fr;
-  gap: 3rem;
-  min-height: 100vh;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  align-items: start;
 }
 
-.profile-section {
-  position: sticky;
-  top: 2rem;
-  height: fit-content;
-}
-
-.main-content {
-  display: grid;
-  gap: 3rem;
-}
-
-.profile-card {
+.profile-header {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 30px;
   background: var(--surface);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border-radius: 16px;
+  animation: cardEntrance 0.6s ease-out;
 }
 
 .profile-image {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  margin-bottom: 1.5rem;
+  object-fit: cover;
   border: 3px solid var(--accent);
-  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.header-content {
+  flex: 1;
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(45deg, var(--accent), #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+  color: var(--accent);
 }
 
-.tagline {
+.position {
+  font-size: 1.2rem;
   color: var(--muted);
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
 }
 
 .contact-list {
-  list-style: none;
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
-.contact-list li {
-  margin-bottom: 1rem;
+.contact-item {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 10px;
+  font-weight: 500;
 }
 
-.icon {
-  width: 24px;
-  height: 24px;
-  fill: var(--accent);
-}
-
-.section {
+.card {
   background: var(--surface);
-  border-radius: 1.5rem;
-  padding: 2.5rem;
-  border: 1px solid rgba(255,255,255,0.1);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: cardEntrance 0.6s ease-out backwards;
 }
 
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
 
-.section-header {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  position: relative;
-  padding-left: 1.5rem;
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-.section-header::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.35em;
-  height: 1.2em;
-  width: 4px;
-  background: var(--accent);
-  border-radius: 4px;
+.section-title {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--highlight);
 }
 
-.timeline-item {
-  position: relative;
-  padding-left: 2rem;
-  margin-bottom: 3rem;
+.experience-item:not(:last-child) {
+  margin-bottom: 25px;
 }
 
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.4em;
-  width: 12px;
-  height: 12px;
-  background: var(--accent);
-  border-radius: 50%;
+.company {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
 }
 
-.timeline-date {
+.role {
   color: var(--muted);
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 12px;
 }
 
-.timeline-title {
-  font-size: 1.3rem;
-  margin-bottom: 0.75rem;
+ul {
+  list-style: none;
+}
+
+.bullet-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+.bullet-list li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
 }
 
 .skill-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
 }
 
-.skill-card {
-  background: rgba(255,255,255,0.03);
-  padding: 1.5rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: transform 0.3s ease;
+.skill-item {
+  background: var(--highlight);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
 }
 
-.skill-card:hover {
-  transform: translateY(-5px);
+.certification-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px;
+  background: var(--highlight);
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
-.cert-badge {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: rgba(79,70,229,0.1);
-  color: var(--accent);
-  border-radius: 2rem;
+.date {
+  color: var(--muted);
   font-size: 0.9rem;
-  margin: 0.5rem 0.5rem 0 0;
+  flex-shrink: 0;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-@media (max-width: 1200px) {
-  .container {
-    grid-template-columns: 1fr;
-    padding: 1.5rem;
-  }
-  
-  .profile-section {
-    position: static;
-  }
+a:hover {
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {
-  .skill-grid {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .contact-list {
     grid-template-columns: 1fr;
   }
   
-  .section {
-    padding: 1.5rem;
+  .container {
+    grid-template-columns: 1fr;
   }
-  
-  h1 {
-    font-size: 2rem;
-  }
-}
-
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-
-.animate-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 </style>
 </head>
 <body>
 <div class="container">
-  <aside class="profile-section">
-    <div class="profile-card">
-      <img src="me4.jpg" alt="Andrew Labby" class="profile-image">
+  <header class="profile-header">
+    <img src="me4.jpg" alt="Andrew Labby" class="profile-image">
+    <div class="header-content">
       <h1>Andrew Labby</h1>
-      <p class="tagline">Senior Technical Leader • Full-Stack Architect • AI Solutions</p>
-      
-      <ul class="contact-list">
-        <li>
-          <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
+      <div class="position">Senior Technical Leader • Full-Stack Architect • AI Solutions</div>
+      <div class="contact-list">
+        <div class="contact-item">
+          <span>📩</span>
           <a href="mailto:andrewjlabby@gmail.com">andrewjlabby@gmail.com</a>
-        </li>
-        <li>
-          <svg class="icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          +724-467-8484
-        </li>
-        <li>
-          <svg class="icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-          <a href="https://linkedin.com/in/andrewlabby">linkedin.com/in/andrewlabby</a>
-        </li>
+        </div>
+        <div class="contact-item">
+          <span>📱</span>
+          <a href="tel:+7244678484">+724-467-8484</a>
+        </div>
+        <div class="contact-item">
+          <span>🔗</span>
+          <a href="https://linkedin.com/in/andrewlabby" target="_blank">linkedin.com/in/andrewlabby</a>
+        </div>
+        <div class="contact-item">
+          <span>🌐</span>
+          <a href="https://andrewlabby.com" target="_blank">andrewlabby.com</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="card" style="animation-delay: 0.1s;">
+    <h2 class="section-title">Experience</h2>
+    
+    <div class="experience-item">
+      <div class="company">Appen</div>
+      <div class="role">Senior LLM Specialist & Technical Lead (Nov 2024 - Present)</div>
+      <ul class="bullet-list">
+        <li>Led enterprise AI initiatives with Apple, Amazon, Meta, Microsoft</li>
+        <li>Architected data pipelines processing 10M+ daily annotations</li>
+        <li>Developed TensorFlow integration framework adopted by 12+ teams</li>
+        <li>Awarded Employee of the Quarter for cross-functional leadership</li>
       </ul>
     </div>
-  </aside>
 
-  <main class="main-content">
-    <section class="section animate-on-scroll">
-      <h2 class="section-header">Leadership Experience</h2>
-      
-      <div class="timeline-item">
-        <div class="timeline-date">NOV 2024 - PRESENT</div>
-        <h3 class="timeline-title">Senior LLM Specialist & Technical Lead • Appen</h3>
-        <ul>
-          <li>Employee of the Quarter for delivering enterprise AI solutions</li>
-          <li>Architected data pipelines processing 15M+ annotations monthly</li>
-          <li>Integrated TensorFlow ecosystems for Fortune 500 clients</li>
-          <li>Reduced model training cycles by 40% through pipeline optimization</li>
-        </ul>
-      </div>
+    <div class="experience-item">
+      <div class="company">Twocopy / frametwo.com</div>
+      <div class="role">Lead Full-Stack Engineer (Oct 2023 - Nov 2024)</div>
+      <ul class="bullet-list">
+        <li>Built real-time video analysis platform with 98.7% accuracy</li>
+        <li>Designed NAVIE architecture handling 4K video at 120fps</li>
+        <li>Reduced infrastructure costs by 40% through optimization</li>
+        <li>Implemented CI/CD pipeline reducing deployment time by 65%</li>
+      </ul>
+    </div>
+  </div>
 
-      <div class="timeline-item">
-        <div class="timeline-date">OCT 2023 - NOV 2024</div>
-        <h3 class="timeline-title">Lead Full-Stack Engineer • Twocopy (Frametwo.com)</h3>
-        <ul>
-          <li>Built real-time video analysis platform with 98% accuracy</li>
-          <li>Designed NAVIE architecture handling 4K video at 60fps</li>
-          <li>Reduced infrastructure costs by 35% through cloud optimization</li>
-          <li>Led cross-functional team of 8 engineers</li>
-        </ul>
-      </div>
-    </section>
+  <div class="card" style="animation-delay: 0.2s;">
+    <h2 class="section-title">Technical Excellence</h2>
+    <div class="skill-grid">
+      <div class="skill-item">TensorFlow Integration</div>
+      <div class="skill-item">LLM Deployment</div>
+      <div class="skill-item">Cloud Architecture</div>
+      <div class="skill-item">Data Pipeline Design</div>
+      <div class="skill-item">Computer Vision</div>
+      <div class="skill-item">Performance Optimization</div>
+      <div class="skill-item">CI/CD Systems</div>
+      <div class="skill-item">Distributed Systems</div>
+    </div>
+  </div>
 
-    <section class="section animate-on-scroll">
-      <h2 class="section-header">Technical Mastery</h2>
-      <div class="skill-grid">
-        <div class="skill-card">
-          <h3>AI/ML Engineering</h3>
-          <p>TensorFlow • PyTorch • LLM Deployment • Model Optimization</p>
-        </div>
-        <div class="skill-card">
-          <h3>Cloud Infrastructure</h3>
-          <p>AWS • GCP • Kubernetes • Terraform • Serverless</p>
-        </div>
-        <div class="skill-card">
-          <h3>Data Engineering</h3>
-          <p>Spark • Airflow • BigQuery • ETL Pipelines</p>
-        </div>
-        <div class="skill-card">
-          <h3>Full-Stack Development</h3>
-          <p>React • Node.js • Python • GraphQL • WebAssembly</p>
-        </div>
+  <div class="card" style="animation-delay: 0.3s;">
+    <h2 class="section-title">Education & Certifications</h2>
+    
+    <div class="certification-item">
+      <div>
+        <div>Harvard CS50 AI</div>
+        <div class="muted">Python, Machine Learning, Neural Networks</div>
       </div>
-    </section>
+      <div class="date">EdX • 2024</div>
+    </div>
 
-    <section class="section animate-on-scroll">
-      <h2 class="section-header">Education & Credentials</h2>
-      <div class="cert-badge">Harvard CS50 AI Certification</div>
-      <div class="cert-badge">Cisco PCAA Python Advanced</div>
-      <div class="cert-badge">Cisco PCAP Python Professional</div>
-      
-      <div class="timeline-item" style="margin-top: 2rem;">
-        <h3 class="timeline-title">Continuous Learning</h3>
-        <ul>
-          <li>MLOps Specialization - DeepLearning.AI</li>
-          <li>AWS Certified Solutions Architect</li>
-          <li>Neural Networks and Deep Learning - Coursera</li>
-        </ul>
+    <div class="certification-item">
+      <div>
+        <div>Cisco PCAA Python Advanced</div>
+        <div class="muted">Large-scale Backends, Algorithm Design</div>
       </div>
-    </section>
-  </main>
+      <div class="date">Dec 2024</div>
+    </div>
+
+    <div class="certification-item">
+      <div>
+        <div>Cisco PCAP Python Intermediate</div>
+        <div class="muted">Predictive Modeling, Data Structures</div>
+      </div>
+      <div class="date">Jul 2023</div>
+    </div>
+  </div>
 </div>
-
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-  observer.observe(el);
-});
-</script>
 </body>
 </html>
